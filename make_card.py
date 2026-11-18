@@ -64,8 +64,9 @@ rating = data.get("rating", 0)
 current_streak = data.get("currentStreak", 0)
 max_streak = data.get("maxStreak", 0)
 
-svg_content = f"""<svg width="420" height="160" viewBox="0 0 420 160" fill="none" xmlns="http://www.w3.org">
+svg_ns = "http://" + "www.w3.org" + "/2000/svg"
 
+svg_content = f"""<svg width="420" height="160" viewBox="0 0 420 160" fill="none" xmlns="{svg_ns}">
   <rect x="2" y="2" width="416" height="156" rx="12" fill="#0D1117" stroke="{color}" stroke-width="2.5"/>
   
   <text x="24" y="42" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="bold">{HANDLE}</text>
