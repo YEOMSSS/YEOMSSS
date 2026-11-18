@@ -64,7 +64,7 @@ rating = data.get("rating", 0)
 current_streak = data.get("currentStreak", 0)
 max_streak = data.get("maxStreak", 0)
 
-svg_content = f"""<svg width="420" height="160" viewBox="0 0 420 160" fill="none" xmlns="http://w3.org">
+svg_content = f"""<svg width="420" height="160" viewBox="0 0 420 160" fill="none" xmlns="http://www.w3.org">
 
   <rect x="2" y="2" width="416" height="156" rx="12" fill="#0D1117" stroke="{color}" stroke-width="2.5"/>
   
