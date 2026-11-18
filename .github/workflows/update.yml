@@ -1,0 +1,36 @@
+name: Update solved.ac card
+
+on:
+  schedule:
+    - cron: '0 16 * * *'  # 매일 한국시간 새벽 1시 실행
+  workflow_dispatch:      # 수동으로도 즉시 실행 가능하도록 버튼 추가
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Generate card.svg
+        env:
+          SOLVEDAC_CLIENT_ID: ${{ secrets.SOLVEDAC_CLIENT_ID }}
+          SOLVEDAC_CLIENT_SECRET: ${{ secrets.SOLVEDAC_CLIENT_SECRET }}
+        run: python make_card.py
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@://github.com"
+          git add card.svg
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update solved.ac card" && git push)
