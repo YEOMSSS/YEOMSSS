@@ -65,25 +65,22 @@ current_streak = data.get("currentStreak", 0)
 max_streak = data.get("maxStreak", 0)
 
 svg_ns = "http://" + "www.w3.org" + "/2000/svg"
-
-svg_content = f"""<svg width="420" height="160" viewBox="0 0 420 160" fill="none" xmlns="{svg_ns}">
-  <rect x="2" y="2" width="416" height="156" rx="12" fill="#0D1117" stroke="{color}" stroke-width="2.5"/>
+svg_content = f"""<svg width="360" height="150" viewBox="0 0 360 150" fill="none" xmlns="{svg_ns}">
+  <rect x="2" y="2" width="356" height="146" rx="12" fill="#0D1117" stroke="{color}" stroke-width="2.5"/>
   
   <text x="24" y="42" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="bold">{HANDLE}</text>
-  <text x="396" y="42" fill="{color}" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" text-anchor="end">{tier_name}</text>
+  <text x="336" y="42" fill="{color}" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" text-anchor="end">{tier_name}</text>
   
-  <line x1="24" y1="60" x2="396" y2="60" stroke="#30363D" stroke-width="1"/>
+  <line x1="24" y1="60" x2="336" y2="60" stroke="#30363D" stroke-width="1"/>
   
   <text x="24" y="92" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold">RATING</text>
-  <text x="24" y="122" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold">{rating:,}</text>
+  <text x="24" y="122" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold">{rating:,}</text>
   
-  <text x="175" y="92" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold">CURRENT STREAK</text>
-  <text x="175" y="122" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold">{current_streak} days</text>
-  
-  <text x="315" y="92" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold">MAX STREAK</text>
-  <text x="315" y="122" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold">{max_streak} days</text>
+  <text x="195" y="92" fill="#8B949E" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold">STREAK</text>
+  <text x="195" y="122" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold">{current_streak} days</text>
 </svg>
 """
+
 
 with open("card.svg", "w", encoding="utf-8") as f:
     f.write(svg_content)
